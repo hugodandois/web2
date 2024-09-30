@@ -30,4 +30,17 @@ Content-Type: application/json
 }
 
 
+### Delete a drink
+DELETE {{baseUrl}}/drinks/2
+
+
+### Update the pizza identified by 5
+PATCH {{baseUrl}}/drinks/5
+Content-Type: application/json
+
+{
+    "title":"Citronade"
+}
+
+
 
