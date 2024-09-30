@@ -1,0 +1,43 @@
+### Read all films with File variable
+@baseUrl = http://localhost:3000
+GET {{baseUrl}}/films
+
+### Read a single film
+GET {{baseUrl}}/films/3
+
+### Read all films with minimum duration of 120 minutes
+
+GET {{baseUrl}}/films/?minimum-duration=120
+
+### Create a film
+POST {{baseUrl}}/films
+Content-Type: application/json
+
+{
+    "title":"The forest",
+    "director":"Jason Zada",
+    "duration":100,
+    "budget":6000000,
+    "description": "The Forest is a 2016 American supernatural horror film directed by Jason Zada and written by Ben Ketai, Nick Antosca, and Sarah Cornwell. Starring Natalie Dormer and Taylor Kinney, it follows a young"
+}
+
+### Read a single film with unknown id
+GET {{baseUrl}}/films/0
+
+### Create a film with title and director in list
+POST {{baseUrl}}/films
+Content-Type: application/json
+
+{
+    "title":"The Godfather",
+    "director":"Francis Ford Coppola",
+    "duration":100,
+    "budget":6000000,
+    "description": "The Forest is a 2016 American supernatural horror film directed by Jason Zada and written by Ben Ketai, Nick Antosca, and Sarah Cornwell. Starring Natalie Dormer and Taylor Kinney, it follows a young"
+}
+
+### Read a film with wrong duration
+
+GET {{baseUrl}}/films/?minimum-duration=0
+
+
