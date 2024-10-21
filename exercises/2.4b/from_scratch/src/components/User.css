@@ -1,0 +1,12 @@
+.user_card{
+    padding: 10px;
+    
+    
+}
+
+.user_online{
+    color: green;
+}
+.user_offline{
+    color: red;
+}   
