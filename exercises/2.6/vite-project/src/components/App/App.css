@@ -1,0 +1,16 @@
+.page-content {
+  height: 50vh;
+  background-color: #333;
+  padding: 1rem;
+  padding-bottom: 8rem;
+
+
+  @media screen and (min-width: 800px) {
+    display: flex;
+    flex-direction: column;
+
+    justify-content: start;
+    align-items: center;
+    
+  }
+}
