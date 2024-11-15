@@ -6,7 +6,8 @@ import DrinkMenu from "./DrinkMenu.tsx";
 import DrinkCard from "./DrinkCard.tsx";
 import { SyntheticEvent } from 'react';
 import { useState } from 'react';
-import { Pizza } from "../../types";
+import { Pizza, NewPizza } from "../../types";
+import AddPizza from "./AddPizza.tsx";
 
 const defaultPizzas = [
   {
@@ -38,32 +39,14 @@ const defaultPizzas = [
 
 
 const Main = () => {
-    const [pizza, setPizza] = useState("");
-    const [description, setDescription] = useState("");
+    
     const [pizzas, setPizzas] = useState(defaultPizzas);
-    const handleSubmit = (e: SyntheticEvent) => {
-      e.preventDefault();
-      console.log("submit:", pizza, description);
-      const newPizza = {
-        id: nextPizzaId(pizzas),
-        title: pizza,
-        content: description,
-      };
-      setPizzas([...pizzas, newPizza]);
-    };
 
-    const handlePizzaChange = (e: SyntheticEvent) => {
-      const pizzaInput = e.target as HTMLInputElement;
-      console.log("pizza:", pizzaInput.value);
-      setPizza(pizzaInput.value);
-    };
 
-    const handleDescriptionChange = (e: SyntheticEvent) => {
-      const descriptionInput = e.target as HTMLInputElement;
-      console.log("description:", descriptionInput.value);
-      setDescription(descriptionInput.value);
-    };
-
+    const addPizza = (pizza: NewPizza) => {
+      const pizzaAdded = { ...pizza, id: nextPizzaId(pizzas) };
+      setPizzas([...pizzas, pizzaAdded]);
+    }
 
     return (
       <main>
@@ -79,13 +62,7 @@ const Main = () => {
         <PizzaMenu pizzas={pizzas} />
         <div>
           <br />
-          <form onSubmit={handleSubmit}>
-            <label htmlFor="pizza">Pizza</label>
-            <input value={pizza} type="text" id="pizza" name="pizza" onChange={handlePizzaChange} required />
-            <label htmlFor="description">Description</label>
-            <input value={description} type="text" id="description" name="description" onChange={handleDescriptionChange} required/>
-            <button type="submit">Ajouter</button>
-          </form>
+          <AddPizza addPizza={addPizza} />
         </div>
         <DrinkMenu title="Notre Menu de Boissons">
           <DrinkCard
