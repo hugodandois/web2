@@ -1,0 +1,5 @@
+.movie-list-view {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
