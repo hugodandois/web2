@@ -10,6 +10,7 @@ const CinemaPage = () => {
 
   const moviesCinema1: Movie[] = [
     {
+      id: 1,
       title: "HAIKYU-THE DUMPSTER BATTLE",
       director: "Susumu Mitsunaka",
       description:
@@ -17,6 +18,7 @@ const CinemaPage = () => {
         duration: 90,
     },
     {
+      id: 2,
       title: "GOODBYE JULIA",
       director: "Mohamed Kordofani",
       description:
@@ -24,6 +26,7 @@ const CinemaPage = () => {
         duration: 120,
     },
     {
+      id: 3,  
       title: "INCEPTION",
       director: "Christopher Nolan",
       description:
@@ -31,6 +34,7 @@ const CinemaPage = () => {
         duration: 150,
     },
     {
+      id: 4,
       title: "PARASITE",
       director: "Bong Joon-ho",
       description:
@@ -43,6 +47,7 @@ const CinemaPage = () => {
 
   const moviesCinema2: Movie[] = [
     {
+      id: 1,
       title: "THE WATCHERS",
       director: "Ishana Night Shyamalan",
       description:
@@ -50,6 +55,7 @@ const CinemaPage = () => {
         duration: 110,
     },
     {
+      id: 2,
       title: "BAD BOYS: RIDE OR DIE",
       director: "Adil El Arbi, Bilall Fallah",
       description:
@@ -58,6 +64,7 @@ const CinemaPage = () => {
 
     },
     {
+      id: 3,
       title: "TENET",
       director: "Christopher Nolan",
       description:
@@ -65,6 +72,7 @@ const CinemaPage = () => {
         duration: 140,
     },
     {
+      id: 4,
       title: "THE IRISHMAN",
       director: "Martin Scorsese",
       description:
