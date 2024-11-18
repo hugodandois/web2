@@ -7,4 +7,9 @@ interface Movie {
     budget?: number;
 }
 
-export type { Movie };
+interface MovieContext {
+    movies: Movie[];
+    onAddMovie: (newMovie: Movie) => void;
+}
+
+export type { Movie, MovieContext };
