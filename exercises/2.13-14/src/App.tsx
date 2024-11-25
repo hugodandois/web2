@@ -1,5 +1,4 @@
-import { useEffect , useState} from "react";
-import "./App.css";
+import { useEffect, useState } from "react";
 
 interface Joke {
   joke: string;
@@ -7,31 +6,35 @@ interface Joke {
 }
 
 const App = () => {
-  const [joke, setJoke] = useState<Joke | null>(null);
+  const [joke, setJoke] = useState<Joke | undefined>(undefined);
 
-  useEffect(() => {
+  const fetchJoke = () => {
     fetch("https://v2.jokeapi.dev/joke/Any?type=single")
       .then((response) => {
-        if (!response.ok) {
-          throw new Error(`fetch error: ${response.status} ${response.statusText}`);
-        }
         return response.json();
       })
-      .then((joke) => setJoke(joke))
-      .catch((error) => {
-        console.error("fetch error:", error);
+      .then((data) => {
+        setJoke({
+          joke: data.joke ?? "No joke found",
+          category: data.category ?? "Unknown",
+        });
       });
+  };
+
+  useEffect(() => {
+    fetchJoke();
+    setInterval(fetchJoke, 10000);
   }, []);
 
   if (!joke) {
-    return <div>Loading...</div>;
+    return <p>Loading...</p>;
   }
 
   return (
-    <div className="container">
+    <div>
+      <h3>Random joke</h3>
       <h4>{joke.category}</h4>
       <blockquote cite="https://www.huxley.net/bnw/four.html">
-      
         <p>{joke.joke}</p>
       </blockquote>
       <p>
@@ -39,6 +42,6 @@ const App = () => {
       </p>
     </div>
   );
-}
+};
 
 export default App;
