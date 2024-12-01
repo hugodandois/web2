@@ -1,0 +1,25 @@
+.navbar {
+    background-color: rgba(0, 0, 0, 0.199);
+    color: white;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    border-radius: 10px;
+    gap: 20px;
+
+    
+}
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: right;
+    width: 100%;
+}
+
+.navbar a {
+    color: rgb(128, 120, 120);
+    text-decoration: none;
+}
+.navbar a:hover {
+    color: white;
+}
